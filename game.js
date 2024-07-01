@@ -31,10 +31,7 @@ function startGame() {
     document.getElementById('score').style.display = 'block';
     document.getElementById('eggsLeft').style.display = 'block';
 
-    // Reset variabelen
-    score = 0;
-    eggsLeft = 20;
-    lastEggThrownTime = 0;
+
     document.getElementById('score').innerText = `Score: ${score}`;
     document.getElementById('eggsLeft').innerText = `Eieren: ${eggsLeft}`;
 
@@ -137,7 +134,7 @@ function draw() {
                    egg.y + egg.height > croky.y) {
             eggs.splice(index, 1);
             score++;
-            eggsLeft += 5; // Voeg 5 eieren toe
+            eggsLeft += 2;
             document.getElementById('score').innerText = `Score: ${score}`;
             document.getElementById('eggsLeft').innerText = `Eieren: ${eggsLeft}`;
             hitSound.play();
@@ -146,6 +143,18 @@ function draw() {
 
     requestAnimationFrame(draw);
 }
+
+function restartGame() {
+    score = 0;
+    eggsLeft = 20;
+    lastEggThrownTime = 0;
+    document.getElementById('score').innerText = `Score: ${score}`;
+    document.getElementById('eggsLeft').innerText = `Eieren: ${eggsLeft}`;
+    gameOverScreen.style.display = 'none';
+    eggs.length = 0; // Maak het array met eieren leeg
+    draw(); // Start het spel opnieuw
+}
+
 
 let targetX = ramona.x;
 canvas.addEventListener('click', (e) => {
@@ -163,6 +172,9 @@ canvas.addEventListener('click', (e) => {
 window.addEventListener('mousemove', (e) => {
     targetX = e.clientX;
 });
+
+playAgainButton.addEventListener('click', restartGame);
+
 
 function updateRamona() {
     ramona.update(targetX);
