@@ -18,7 +18,8 @@ const playAgainButton = document.getElementById('playAgainButton');
 const audioClips = [
     'gooi maar.mp3',
     'hier komen de eireren.mp3',
-    'Allermaal niet vegen dus het is helemaal niet leuk.mp3'
+    'Allermaal niet vegen dus het is helemaal niet leuk.mp3',
+	'zijn die eieren vegan.mp3'
 ];
 
 const playButton = document.getElementById('playButton');
