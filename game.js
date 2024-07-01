@@ -159,7 +159,7 @@ function restartGame() {
 let targetX = ramona.x;
 canvas.addEventListener('click', (e) => {
     const currentTime = new Date().getTime();
-    if (eggsLeft > 0 && (currentTime - lastEggThrownTime) > 1000 && !isPlayingSound) { // Controleer of er meer dan 1 seconde is verstreken en er geen geluidsfragment wordt afgespeeld
+    if (eggsLeft > 0 && (currentTime - lastEggThrownTime) > 1000) { // Controleer of er meer dan 1 seconde is verstreken en er geen geluidsfragment wordt afgespeeld
         const egg = new Egg(ramona.x + ramona.width / 2, ramona.y);
         eggs.push(egg);
         eggsLeft--; // Verminder het aantal eieren met 1
